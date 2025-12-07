@@ -1,0 +1,2820 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Bayram Sayfa Kitabevi</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="eCommerce HTML Template Free Download" name="keywords" />
+    <meta content="eCommerce HTML Template Free Download" name="description" />
+
+    <!-- Favicon -->
+    <link href="img/icon2.png" rel="icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Libraries -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="lib/slick/slick.css" rel="stylesheet" />
+    <link href="lib/slick/slick-theme.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Ubuntu:400,800");
+
+      * {
+        box-sizing: border-box;
+      }
+
+      button {
+        border-radius: 20px;
+        border: 1px solid #00c9ff;
+        background-color: #00c9ff;
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 12px 45px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: transform 80ms ease-in;
+      }
+
+      button:active {
+        transform: scale(0.95);
+      }
+
+      button:focus {
+        outline: none;
+      }
+
+      button.ghost {
+        background-color: transparent;
+        border-color: #ffffff;
+      }
+
+      form {
+        background-color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 50px;
+        height: 100%;
+        text-align: center;
+      }
+
+      input {
+        background-color: #eee;
+        border: none;
+        padding: 12px 15px;
+        margin: 8px 0;
+        width: 100%;
+      }
+
+      .container {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+          0 10px 10px rgba(0, 0, 0, 0.22);
+        position: relative;
+        overflow: hidden;
+        width: 768px;
+        max-width: 100%;
+        min-height: 480px;
+      }
+
+      .form-container {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        transition: all 0.6s ease-in-out;
+      }
+
+      .sign-in-container {
+        left: 0;
+        width: 50%;
+        z-index: 2;
+      }
+
+      .container.right-panel-active .sign-in-container {
+        transform: translateX(100%);
+      }
+
+      .sign-up-container {
+        left: 0;
+        width: 50%;
+        opacity: 0;
+        z-index: 1;
+      }
+
+      .container.right-panel-active .sign-up-container {
+        transform: translateX(100%);
+        opacity: 1;
+        z-index: 5;
+        animation: show 0.6s;
+      }
+
+      @keyframes show {
+        0%,
+        49.99% {
+          opacity: 0;
+          z-index: 1;
+        }
+
+        50%,
+        100% {
+          opacity: 1;
+          z-index: 5;
+        }
+      }
+
+      .overlay-container {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+        transition: transform 0.6s ease-in-out;
+        z-index: 100;
+      }
+
+      .container.right-panel-active .overlay-container {
+        transform: translateX(-100%);
+      }
+
+      .overlay {
+        background: #00c9ff; /* fallback for old browsers */
+        background: -webkit-linear-gradient(
+          to left,
+          #92fe9d,
+          #00c9ff
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(
+          to left,
+          #92fe9d,
+          #00c9ff
+        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 0 0;
+        color: #ffffff;
+        position: relative;
+        left: -100%;
+        height: 100%;
+        width: 200%;
+        transform: translateX(0);
+        transition: transform 0.6s ease-in-out;
+      }
+
+      .container.right-panel-active .overlay {
+        transform: translateX(50%);
+      }
+
+      .overlay-panel {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 40px;
+        text-align: center;
+        top: 0;
+        height: 100%;
+        width: 50%;
+        transform: translateX(0);
+        transition: transform 0.6s ease-in-out;
+      }
+
+      .overlay-left {
+        transform: translateX(-20%);
+      }
+
+      .container.right-panel-active .overlay-left {
+        transform: translateX(0);
+      }
+
+      .overlay-right {
+        right: 0;
+        transform: translateX(0);
+      }
+
+      .container.right-panel-active .overlay-right {
+        transform: translateX(20%);
+      }
+
+      .social-container {
+        margin: 20px 0;
+      }
+
+      .social-container a {
+        border: 1px solid #dddddd;
+        border-radius: 50%;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 5px;
+        height: 40px;
+        width: 40px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Nav Bar Start -->
+    <div class="nav">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+          <a href="#" class="navbar-brand">MENU</a>
+          <button
+            type="button"
+            class="navbar-toggler"
+            data-toggle="collapse"
+            data-target="#navbarCollapse"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div
+            class="collapse navbar-collapse justify-content-between"
+            id="navbarCollapse"
+          >
+            <div class="navbar-nav mr-auto">
+              <a href="index.html" class="nav-item nav-link">ANASAYFA</a>
+              <div class="nav-item dropdown">
+                <a
+                  href="product-list.html"
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  >ÜRÜNLER</a
+                >
+                <div class="dropdown-menu">
+                  <a href="product-list.html" class="dropdown-item"
+                    >TÜM KİTAPLAR</a
+                  >
+                  <a href="product-list.html#klasik" class="dropdown-item"
+                    >KLASİK EDEBİYAT</a
+                  >
+                  <a href="product-list.html#bilim-kurgu" class="dropdown-item"
+                    >BİLİM KURGU</a
+                  >
+                  <a href="product-list.html#tarih" class="dropdown-item"
+                    >TARİH ROMANLARI</a
+                  >
+                  <a href="product-list.html#fantastik" class="dropdown-item"
+                    >FANTASTİK ROMANLAR</a
+                  >
+                  <a href="product-list.html#cocuk" class="dropdown-item"
+                    >ÇOCUK KİTAPLARI</a
+                  >
+                  <a href="product-list.html#romantik" class="dropdown-item"
+                    >ROMANTİK ROMANLAR</a
+                  >
+                </div>
+              </div>
+              <a href="kampanya.html" class="nav-item nav-link">KAMPANYALAR</a>
+              <a href="birimlerimiz.html" class="nav-item nav-link"
+                >MİSYON ve VİZYON</a
+              >
+
+              <div class="nav-item dropdown">
+                <a
+                  href="birimlerimiz.html"
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  >BİRİMLERİMİZ</a
+                >
+                <div class="dropdown-menu">
+                  <a href="birimlerimiz.html" class="dropdown-item"
+                    >SATIŞ VE MÜŞTERİ HİZMETLERİ</a
+                  >
+                  <a href="birimlerimiz.html" class="dropdown-item"
+                    >DEPOLAMA VE LOJİSTİK</a
+                  >
+                  <a href="birimlerimiz.html" class="dropdown-item"
+                    >EDİTÖRYAL EKİP</a
+                  >
+                </div>
+              </div>
+              <a href="contact.html" class="nav-item nav-link">İLETİŞİM</a>
+              <a href="birimlerimiz.html" class="nav-item nav-link"
+                >HAKKIMIZDA</a
+              >
+            </div>
+            <div class="navbar-nav ml-auto">
+              <div class="nav-item dropdown">
+                <a
+                  href=""
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  >GİRİŞ YAP</a
+                >
+                <div class="dropdown-menu">
+                  <a href="login.html" class="dropdown-item">Giriş Yap</a>
+                  <a href="login.html" class="dropdown-item">Kayıt Ol</a>
+                  <a href="admin/dist/index.html" class="dropdown-item"
+                    >Admin Sayfası</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <!-- Nav Bar End -->
+    <br /><br /><br />
+    <!-- from the tutorial https://medium.freecodecamp.org/how-to-build-a-double-slider-sign-in-and-sign-up-form-6a5d03612a34 -->
+    <div class="container" id="container">
+      <div class="form-container sign-up-container">
+        <form action="#">
+          <h1>Hesap Oluştur</h1>
+          <div class="social-container">
+            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <span>veya mailini kullan</span>
+          <input type="text" placeholder="İsim" />
+          <input type="email" placeholder="Email" />
+          <input type="password" placeholder="Şifre" />
+          <button>Kayıt Ol</button>
+        </form>
+      </div>
+      <div class="form-container sign-in-container">
+        <form action="#">
+          <h1>Giriş Yap</h1>
+          <div class="social-container">
+            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <span>veya hesabını kullan</span>
+          <input type="email" placeholder="Email" />
+          <input type="password" placeholder="Şifre" />
+          <a href="#">Şifeni mi unuttun?</a>
+          <button>Giriş Yap</button>
+        </form>
+      </div>
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-left">
+            <h1>Tekrar Hoşgeldin!</h1>
+            <p>Hesap bilgilerini gir ve sitede gezinmeye devam et</p>
+            <button class="ghost" id="signIn">Giriş Yap</button>
+          </div>
+          <div class="overlay-panel overlay-right">
+            <h1>Aramıza Hoşgeldin</h1>
+            <p>Bilgilerini gir ve aramıza katıl!</p>
+            <button class="ghost" id="signUp">KAyıt Ol</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br /><br /><br />
+    <!-- Footer Start -->
+    <div class="footer">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-4 col-md-8">
+            <div class="footer-widget">
+              <h2>İletişim</h2>
+              <div class="contact-info">
+                <p><i class="fa fa-envelope"></i>bayramkitap@info.com</p>
+                <p><i class="fa fa-phone"></i>262 666 41 41</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-8">
+            <div class="footer-widget">
+              <h2>Bizi Takip Et</h2>
+              <div class="contact-info">
+                <div class="social">
+                  <a href=""><i class="fab fa-twitter"></i></a>
+                  <a href=""><i class="fab fa-facebook-f"></i></a>
+                  <a href=""><i class="fab fa-linkedin-in"></i></a>
+                  <a href=""><i class="fab fa-instagram"></i></a>
+                  <a href=""><i class="fab fa-youtube"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-8">
+            <div class="footer-widget">
+              <h2>Tasarlayan</h2>
+              <div class="contact-info">
+                <p>-Bayram Dilek</p>
+                <p>-Bilişim Sistemleri Mühendisliği Öğrencisi</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer End -->
+
+      <!-- Back to Top -->
+      <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+      <!-- JavaScript Libraries -->
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+      <script src="lib/easing/easing.min.js"></script>
+      <script src="lib/slick/slick.min.js"></script>
+
+      <!-- Template Javascript -->
+      <script src="js/main.js"></script>
+      <script>
+        const signUpButton = document.getElementById("signUp");
+        const signInButton = document.getElementById("signIn");
+        const container = document.getElementById("container");
+
+        signUpButton.addEventListener("click", () => {
+          container.classList.add("right-panel-active");
+        });
+
+        signInButton.addEventListener("click", () => {
+          container.classList.remove("right-panel-active");
+        });
+      </script>
+    </div>
+  </body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Bayram Sayfa Kitabevi</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="eCommerce HTML Template Free Download" name="keywords" />
+    <meta content="eCommerce HTML Template Free Download" name="description" />
+
+    <!-- Favicon -->
+    <link href="img/icon2.png" rel="icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Libraries -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="lib/slick/slick.css" rel="stylesheet" />
+    <link href="lib/slick/slick-theme.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+  <style>
+    /* style for demo purposes   */
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* modal content styles */
+    .modal-content-wrapper {
+      max-width: 1400px;
+      width: 90%;
+      display: flex;
+      margin: auto;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 70px 0;
+    }
+    .modal-content-wrapper .image-modal-content {
+      flex: 0 0 30%;
+      cursor: pointer;
+      transition: 300ms ease-out;
+      margin-right: 10px;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 992px) {
+      .modal-content-wrapper .image-modal-content {
+        flex: 0 0 45%;
+      }
+    }
+    @media (max-width: 550px) {
+      .modal-content-wrapper .image-modal-content {
+        flex: 0 0 100%;
+      }
+    }
+    .modal-content-wrapper .image-modal-content:hover {
+      transform: scale(1.03);
+      transition: 300ms ease-in;
+    }
+    .modal-content-wrapper .image-modal-content img {
+      width: 650px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid #222;
+    }
+
+    /* modal popup styles */
+    .image-modal-popup {
+      position: fixed;
+      overflow: auto;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      animation: 500ms fadeIn;
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .image-modal-popup .wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+      margin-top: 30px;
+      position: relative;
+    }
+
+    .image-modal-popup .description {
+      text-align: center;
+    }
+    .image-modal-popup img {
+      width: 80%;
+      max-height: calc(100vh - 150px);
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+    .image-modal-popup span {
+      position: absolute;
+      top: 0;
+      right: 10px;
+      font-size: 4rem;
+      color: red;
+      cursor: pointer;
+    }
+    .image-modal-popup p {
+      margin: 5px auto;
+      font-size: 1.1rem;
+    }
+  </style>
+  <body>
+    <!-- Nav Bar Start -->
+    <div class="nav">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+          <a href="#" class="navbar-brand">MENU</a>
+          <button
+            type="button"
+            class="navbar-toggler"
+            data-toggle="collapse"
+            data-target="#navbarCollapse"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div
+            class="collapse navbar-collapse justify-content-between"
+            id="navbarCollapse"
+          >
+            <div class="navbar-nav mr-auto">
+              <a href="index.html" class="nav-item nav-link">ANASAYFA</a>
+              <div class="nav-item dropdown">
+                <a
+                  href="product-list.html"
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  >ÜRÜNLER</a
+                >
+                <div class="dropdown-menu">
+                  <a href="product-list.html" class="dropdown-item"
+                    >TÜM KİTAPLAR</a
+                  >
+                  <a href="product-list.html#klasik" class="dropdown-item"
+                    >KLASİK EDEBİYAT</a
+                  >
+                  <a href="product-list.html#bilim-kurgu" class="dropdown-item"
+                    >BİLİM KURGU</a
+                  >
+                  <a href="product-list.html#tarih" class="dropdown-item"
+                    >TARİH ROMANLARI</a
+                  >
+                  <a href="product-list.html#fantastik" class="dropdown-item"
+                    >FANTASTİK ROMANLAR</a
+                  >
+                  <a href="product-list.html#cocuk" class="dropdown-item"
+                    >ÇOCUK KİTAPLARI</a
+                  >
+                  <a href="product-list.html#romantik" class="dropdown-item"
+                    >ROMANTİK ROMANLAR</a
+                  >
+                </div>
+              </div>
+              <a href="kampanya.html" class="nav-item active nav-link"
+                >KAMPANYALAR</a
+              >
+              <a href="birimlerimiz.html" class="nav-item nav-link"
+                >MİSYON ve VİZYON</a
+              >
+
+              <div class="nav-item dropdown">
+                <a
+                  href="birimlerimiz.html"
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  >BİRİMLERİMİZ</a
+                >
+                <div class="dropdown-menu">
+                  <a href="birimlerimiz.html" class="dropdown-item"
+                    >SATIŞ VE MÜŞTERİ HİZMETLERİ</a
+                  >
+                  <a href="birimlerimiz.html" class="dropdown-item"
+                    >DEPOLAMA VE LOJİSTİK</a
+                  >
+                  <a href="birimlerimiz.html" class="dropdown-item"
+                    >EDİTÖRYAL EKİP</a
+                  >
+                </div>
+              </div>
+              <a href="contact.html" class="nav-item nav-link">İLETİŞİM</a>
+              <a href="birimlerimiz.html" class="nav-item nav-link"
+                >HAKKIMIZDA</a
+              >
+            </div>
+            <div class="navbar-nav ml-auto">
+              <div class="nav-item dropdown">
+                <a
+                  href=""
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  >GİRİŞ YAP</a
+                >
+                <div class="dropdown-menu">
+                  <a href="login.html" class="dropdown-item">Giriş Yap</a>
+                  <a href="login.html" class="dropdown-item">Kayıt Ol</a>
+                  <a href="admin/dist/index.html" class="dropdown-item"
+                    >Admin Sayfası</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <!-- Nav Bar End -->
+
+    <!-- Bottom Bar Start -->
+    <div class="bottom-bar" style="background-color: #5585b5">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-md-3">
+            <div class="logo">
+              <a href="index.html">
+                <img src="img/logo.png" alt="Logo" />
+              </a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="search">
+              <input type="text" placeholder="Search" />
+              <button><i class="fa fa-search"></i></button>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="user">
+              <a href="wishlist.html" class="btn wishlist">
+                <i class="fa fa-heart"></i>
+                <span>(0)</span>
+              </a>
+              <a href="cart.html" class="btn cart">
+                <i class="fa fa-shopping-cart"></i>
+                <span>(0)</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bottom Bar End -->
+
+    <!-- Call to Action Start -->
+    <div class="call-to-action">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <h1 style="text-align: left">KAMPANYALAR</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action End -->
+    <!--Pop Up-->
+    <div class="modal-content-wrapper">
+      <div class="image-modal-content">
+        <img
+          src="img/kampanya1.png"
+          data-title=""
+          data-description="Ürünlerimizi Görmek için Ürünler Sayfamıza İlerlemeniz Yeterli!"
+        />
+      </div>
+      <div class="image-modal-content">
+        <img
+          src="https://img.kitapyurdu.com/v1/getImage/fn:11810972/wi:0/wh:5aceaa550"
+          data-title=""
+          data-description="Kapra Yayıncılık'tan 10 kitap alana, insanlığımı Yitirirken sepette 5TL!"
+          alt="Vanilla JS Modal"
+        />
+      </div>
+      <div class="image-modal-content">
+        <img
+          src="https://img.kitapyurdu.com/v1/getImage/fn:11699126/wi:0/wh:b503d35d5"
+          data-title=""
+          data-description="Tam Metin Klasiklerde 9,90TL'den başlayan fiyatlar!"
+          alt="Vanilla JS Modal"
+        />
+      </div>
+      <div class="image-modal-content">
+        <img
+          src="https://img.kitapyurdu.com/v1/getImage/fn:11786057/wi:0/wh:6321cb2e0"
+          data-title=""
+          data-description="Tek Eksiği Fiyatı! Ömürlük, Dünya ve Türk Klasikleri Şimdi Ciltli, İplik Dikişli
+          29,90TL."
+          alt="Vanilla JS Modal"
+        />
+      </div>
+      <div class="image-modal-content">
+        <img
+          src="https://img.kitapyurdu.com/v1/getImage/fn:11771064/wi:0/wh:5d4a5c0c7"
+          data-title=""
+          data-description="400TL ve üzeri alışverişlerde 3'Iü Okul Defteri Seti Sepette 3TL!"
+          alt="Vanilla JS Modal"
+        />
+      </div>
+      <div class="image-modal-content">
+        <img
+          src="img/pictures1.png"
+          data-title=""
+          data-description="Canan Karatayın Kitapları Artık bayram Sayfalarda!!"
+          alt="Vanilla JS Modal"
+        />
+      </div>
+      <div class="image-modal-content">
+        <img
+          src="img/pictures2.png"
+          data-title=""
+          data-description="Harry Potter Serisi En İyi bayram Sayfalardan Alınır"
+          alt="Vanilla JS Modal"
+        />
+      </div>
+      <div class="image-modal-content">
+        <img
+          src="img/pictures3.png"
+          data-title=""
+          data-description="Futbol Hayranları Bu Siteye!"
+          alt="Vanilla JS Modal"
+        />
+      </div>
+      <div class="image-modal-content">
+        <img
+          src="img/pictures4.png"
+          data-title=""
+          data-description="Can Yayınlarında %50 İndirim"
+          alt="Vanilla JS Modal"
+        />
+      </div>
+      <div class="image-modal-content">
+        <img
+          src="https://img.kitapyurdu.com/v1/getImage/fn:11786127/wi:0/wh:27446a502"
+          data-title=""
+          data-description="300TL üzeri Kargo BEDAVA! 150TL üzeri sabit 19,90TL"
+          alt="Vanilla JS Modal"
+        />
+      </div>
+    </div>
+
+    <!-- modal popup (displayed none by default) -->
+    <div class="image-modal-popup">
+      <div class="wrapper">
+        <span>&times;</span>
+        <img src="" alt="Image Modal" />
+        <div class="description">
+          <h1>This is placeholder content</h1>
+          <p>This content will be overwritten when the modal opens</p>
+        </div>
+      </div>
+    </div>
+    <!--Pop Up End-->
+    <!-- Footer Start -->
+    <div class="footer">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-4 col-md-8">
+            <div class="footer-widget">
+              <h2>İletişim</h2>
+              <div class="contact-info">
+                <p><i class="fa fa-envelope"></i>bayramkitap@info.com</p>
+                <p><i class="fa fa-phone"></i>262 666 41 41</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-8">
+            <div class="footer-widget">
+              <h2>Bizi Takip Et</h2>
+              <div class="contact-info">
+                <div class="social">
+                  <a href=""><i class="fab fa-twitter"></i></a>
+                  <a href=""><i class="fab fa-facebook-f"></i></a>
+                  <a href=""><i class="fab fa-linkedin-in"></i></a>
+                  <a href=""><i class="fab fa-instagram"></i></a>
+                  <a href=""><i class="fab fa-youtube"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-8">
+            <div class="footer-widget">
+              <h2>Tasarlayan</h2>
+              <div class="contact-info">
+                <p>-Bayram Dilek</p>
+                <p>-Bilişim Sistemleri Mühendisliği Öğrencisi</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer End -->
+
+      <!-- Footer Bottom Start -->
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 copyright">
+              <p>
+                Copyright &copy; <a href="https://htmlcodex.com">HTML Codex</a>.
+                All Rights Reserved
+              </p>
+            </div>
+
+            <div class="col-md-6 template-by">
+              <p>Template By <a href="https://htmlcodex.com">HTML Codex</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer Bottom End -->
+
+      <!-- Back to Top -->
+      <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+      <script src="lib/easing/easing.min.js"></script>
+      <script src="lib/slick/slick.min.js"></script>
+
+      <!-- Template Javascript -->
+      <script src="js/main.js"></script>
+      <script>
+        // all images inside the image modal content class
+        const lightboxImages = document.querySelectorAll(
+          ".image-modal-content img"
+        );
+
+        // dynamically selects all elements inside modal popup
+        const modalElement = (element) =>
+          document.querySelector(`.image-modal-popup ${element}`);
+
+        const body = document.querySelector("body");
+
+        // closes modal on clicking anywhere and adds overflow back
+        document.addEventListener("click", () => {
+          body.style.overflow = "auto";
+          modalPopup.style.display = "none";
+        });
+
+        const modalPopup = document.querySelector(".image-modal-popup");
+
+        // loops over each modal content img and adds click event functionality
+        lightboxImages.forEach((img) => {
+          const data = img.dataset;
+          img.addEventListener("click", (e) => {
+            body.style.overflow = "hidden";
+            e.stopPropagation();
+            modalPopup.style.display = "block";
+            modalElement("h1").innerHTML = data.title;
+            modalElement("p").innerHTML = data.description;
+            modalElement("img").src = img.src;
+          });
+        });
+      </script>
+    </div>
+  </body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Bayram Sayfa Kitabevi</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="eCommerce HTML Template Free Download" name="keywords" />
+    <meta content="eCommerce HTML Template Free Download" name="description" />
+
+    <!-- Favicon -->
+    <link href="img/icon2.png" rel="icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Libraries -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="lib/slick/slick.css" rel="stylesheet" />
+    <link href="lib/slick/slick-theme.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Nav Bar Start -->
+    <div class="nav">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+          <a href="#" class="navbar-brand">MENU</a>
+          <button
+            type="button"
+            class="navbar-toggler"
+            data-toggle="collapse"
+            data-target="#navbarCollapse"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div
+            class="collapse navbar-collapse justify-content-between"
+            id="navbarCollapse"
+          >
+            <div class="navbar-nav mr-auto">
+              <a href="index.html" class="nav-item nav-link">ANASAYFA</a>
+              <div class="nav-item dropdown">
+                <a
+                  href="product-list.html"
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  >ÜRÜNLER</a
+                >
+                <div class="dropdown-menu">
+                  <a href="product-list.html" class="dropdown-item"
+                    >TÜM KİTAPLAR</a
+                  >
+                  <a href="product-list.html#klasik" class="dropdown-item"
+                    >KLASİK EDEBİYAT</a
+                  >
+                  <a href="product-list.html#bilim-kurgu" class="dropdown-item"
+                    >BİLİM KURGU</a
+                  >
+                  <a href="product-list.html#tarih" class="dropdown-item"
+                    >TARİH ROMANLARI</a
+                  >
+                  <a href="product-list.html#fantastik" class="dropdown-item"
+                    >FANTASTİK ROMANLAR</a
+                  >
+                  <a href="product-list.html#cocuk" class="dropdown-item"
+                    >ÇOCUK KİTAPLARI</a
+                  >
+                  <a href="product-list.html#romantik" class="dropdown-item"
+                    >ROMANTİK ROMANLAR</a
+                  >
+                </div>
+              </div>
+              <a href="kampanya.html" class="nav-item nav-link">KAMPANYALAR</a>
+              <a href="birimlerimiz.html" class="nav-item nav-link"
+                >MİSYON ve VİZYON</a
+              >
+
+              <div class="nav-item dropdown">
+                <a
+                  href="birimlerimiz.html"
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  >BİRİMLERİMİZ</a
+                >
+                <div class="dropdown-menu">
+                  <a href="birimlerimiz.html" class="dropdown-item"
+                    >SATIŞ VE MÜŞTERİ HİZMETLERİ</a
+                  >
+                  <a href="birimlerimiz.html" class="dropdown-item"
+                    >DEPOLAMA VE LOJİSTİK</a
+                  >
+                  <a href="birimlerimiz.html" class="dropdown-item"
+                    >EDİTÖRYAL EKİP</a
+                  >
+                </div>
+              </div>
+              <a href="contact.html" class="nav-item active nav-link"
+                >İLETİŞİM</a
+              >
+              <a href="birimlerimiz.html" class="nav-item nav-link"
+                >HAKKIMIZDA</a
+              >
+            </div>
+            <div class="navbar-nav ml-auto">
+              <div class="nav-item dropdown">
+                <a
+                  href=""
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  >GİRİŞ YAP</a
+                >
+                <div class="dropdown-menu">
+                  <a href="login.html" class="dropdown-item">Giriş Yap</a>
+                  <a href="login.html" class="dropdown-item">Kayıt Ol</a>
+                  <a href="admin/dist/index.html" class="dropdown-item"
+                    >Admin Sayfası</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <!-- Nav Bar End -->
+
+    <!-- Bottom Bar Start -->
+    <div class="bottom-bar" style="background-color: #5585b5">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-md-3">
+            <div class="logo">
+              <a href="index.html">
+                <img src="img/logo.png" alt="Logo" />
+              </a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="search">
+              <input type="text" placeholder="Search" />
+              <button><i class="fa fa-search"></i></button>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="user">
+              <a href="wishlist.html" class="btn wishlist">
+                <i class="fa fa-heart"></i>
+                <span>(0)</span>
+              </a>
+              <a href="cart.html" class="btn cart">
+                <i class="fa fa-shopping-cart"></i>
+                <span>(0)</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bottom Bar End -->
+
+    <!-- Contact Start -->
+    <div class="contact">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="contact-info">
+              <h2>ADRESİMİZ</h2>
+              <h3><i class="fa fa-map-marker"></i>İzmit/Kocaeli</h3>
+              <h3><i class="fa fa-envelope"></i>bayramkitap@info.com</h3>
+              <h3><i class="fa fa-phone"></i>+123-456-7890</h3>
+              <div class="social">
+                <a href=""><i class="fab fa-twitter"></i></a>
+                <a href=""><i class="fab fa-facebook-f"></i></a>
+                <a href=""><i class="fab fa-linkedin-in"></i></a>
+                <a href=""><i class="fab fa-instagram"></i></a>
+                <a href=""><i class="fab fa-youtube"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="contact-form">
+              <form>
+                <h2>ÖNERİ</h2>
+                <div class="row">
+                  <div class="col-md-6">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="İsminiz"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="Mailiniz"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Konu" />
+                </div>
+                <div class="form-group">
+                  <textarea
+                    class="form-control"
+                    rows="5"
+                    placeholder="Mesajınız"
+                  ></textarea>
+                </div>
+                <div>
+                  <button class="btn" type="submit">E-Mail Gönder</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="contact-form">
+              <form>
+                <h2>ŞİKAYET</h2>
+                <div class="row">
+                  <div class="col-md-6">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="İsminiz"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="E-Mailiniz"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Konu" />
+                </div>
+                <div class="form-group">
+                  <textarea
+                    class="form-control"
+                    rows="5"
+                    placeholder="Mesajınız"
+                  ></textarea>
+                </div>
+                <div>
+                  <button class="btn" type="submit">E-Mail Gönder</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="contact-map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6044.031286845064!2d29.93127879608414!3d40.76168066512692!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cb4581e4f26569%3A0xb29ec6e5f3c219b8!2zw5ZtZXJhxJ9hLCBPdG9wYXJrLCA0MTMwMCDEsHptaXQvS29jYWVsaQ!5e0!3m2!1str!2str!4v1702157157469!5m2!1str!2str"
+                width="600"
+                height="450"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Contact End -->
+
+    <!-- Footer Start -->
+    <div class="footer">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-4 col-md-8">
+            <div class="footer-widget">
+              <h2>İletişim</h2>
+              <div class="contact-info">
+                <p><i class="fa fa-envelope"></i>bayramkitap@info.com</p>
+                <p><i class="fa fa-phone"></i>262 666 41 41</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-8">
+            <div class="footer-widget">
+              <h2>Bizi Takip Et</h2>
+              <div class="contact-info">
+                <div class="social">
+                  <a href=""><i class="fab fa-twitter"></i></a>
+                  <a href=""><i class="fab fa-facebook-f"></i></a>
+                  <a href=""><i class="fab fa-linkedin-in"></i></a>
+                  <a href=""><i class="fab fa-instagram"></i></a>
+                  <a href=""><i class="fab fa-youtube"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-8">
+            <div class="footer-widget">
+              <h2>Tasarlayan</h2>
+              <div class="contact-info">
+                <p>-Bayram Dilek</p>
+                <p>-Bilişim Sistemleri Mühendisliği Öğrencisi</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer End -->
+
+      <!-- Footer Bottom Start -->
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 copyright">
+              <p>
+                Copyright &copy; <a href="https://htmlcodex.com">HTML Codex</a>.
+                All Rights Reserved
+              </p>
+            </div>
+
+            <div class="col-md-6 template-by">
+              <p>Template By <a href="https://htmlcodex.com">HTML Codex</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer Bottom End -->
+
+      <!-- Back to Top -->
+      <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+      <!-- JavaScript Libraries -->
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+      <script src="lib/easing/easing.min.js"></script>
+      <script src="lib/slick/slick.min.js"></script>
+
+      <!-- Template Javascript -->
+      <script src="js/main.js"></script>
+    </div>
+  </body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Bayram Sayfa Kitabevi</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="eCommerce HTML Template Free Download" name="keywords" />
+    <meta content="eCommerce HTML Template Free Download" name="description" />
+
+    <!-- Favicon -->
+    <link href="img/icon2.png" rel="icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Libraries -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="lib/slick/slick.css" rel="stylesheet" />
+    <link href="lib/slick/slick-theme.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+  <style>
+    /* style for demo purposes   */
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* modal content styles */
+    .modal-content-wrapper {
+      max-width: 1400px;
+      width: 90%;
+      display: flex;
+      margin: auto;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 70px 0;
+    }
+    .modal-content-wrapper .image-modal-content {
+      flex: 0 0 30%;
+      cursor: pointer;
+      transition: 300ms ease-out;
+      margin-right: 10px;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 992px) {
+      .modal-content-wrapper .image-modal-content {
+        flex: 0 0 45%;
+      }
+    }
+    @media (max-width: 550px) {
+      .modal-content-wrapper .image-modal-content {
+        flex: 0 0 100%;
+      }
+    }
+    .modal-content-wrapper .image-modal-content:hover {
+      transform: scale(1.03);
+      transition: 300ms ease-in;
+    }
+    .modal-content-wrapper .image-modal-content img {
+      width: 650px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid #222;
+    }
+
+    /* modal popup styles */
+    .image-modal-popup {
+      position: fixed;
+      overflow: auto;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      animation: 500ms fadeIn;
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .image-modal-popup .wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+      margin-top: 30px;
+      position: relative;
+    }
+
+    .image-modal-popup .description {
+      text-align: center;
+    }
+    .image-modal-popup img {
+      width: 80%;
+      max-height: calc(100vh - 150px);
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+    .image-modal-popup span {
+      position: absolute;
+      top: 0;
+      right: 10px;
+      font-size: 4rem;
+      color: red;
+      cursor: pointer;
+    }
+    .image-modal-popup p {
+      margin: 5px auto;
+      font-size: 1.1rem;
+    }
+  </style>
+  <body>
+    <!-- Nav Bar Start -->
+    <div class="nav">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+          <a href="#" class="navbar-brand">MENU</a>
+          <button
+            type="button"
+            class="navbar-toggler"
+            data-toggle="collapse"
+            data-target="#navbarCollapse"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div
+            class="collapse navbar-collapse justify-content-between"
+            id="navbarCollapse"
+          >
+            <div class="navbar-nav mr-auto">
+              <a href="index.html" class="nav-item nav-link active">ANASAYFA</a>
+              <div class="nav-item dropdown">
+                <a
+                  href="product-list.html"
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  >ÜRÜNLER</a
+                >
+                <div class="dropdown-menu">
+                  <a href="product-list.html" class="dropdown-item"
+                    >TÜM KİTAPLAR</a
+                  >
+                  <a href="product-list.html#klasik" class="dropdown-item"
+                    >KLASİK EDEBİYAT</a
+                  >
+                  <a href="product-list.html#bilim-kurgu" class="dropdown-item"
+                    >BİLİM KURGU</a
+                  >
+                  <a href="product-list.html#tarih" class="dropdown-item"
+                    >TARİH ROMANLARI</a
+                  >
+                  <a href="product-list.html#fantastik" class="dropdown-item"
+                    >FANTASTİK ROMANLAR</a
+                  >
+                  <a href="product-list.html#cocuk" class="dropdown-item"
+                    >ÇOCUK KİTAPLARI</a
+                  >
+                  <a href="product-list.html#romantik" class="dropdown-item"
+                    >ROMANTİK ROMANLAR</a
+                  >
+                </div>
+              </div>
+              <a href="kampanya.html" class="nav-item nav-link">KAMPANYALAR</a>
+              <a href="birimlerimiz.html" class="nav-item nav-link"
+                >MİSYON ve VİZYON</a
+              >
+
+              <div class="nav-item dropdown">
+                <a
+                  href="birimlerimiz.html"
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  >BİRİMLERİMİZ</a
+                >
+                <div class="dropdown-menu">
+                  <a href="birimlerimiz.html" class="dropdown-item"
+                    >SATIŞ VE MÜŞTERİ HİZMETLERİ</a
+                  >
+                  <a href="birimlerimiz.html" class="dropdown-item"
+                    >DEPOLAMA VE LOJİSTİK</a
+                  >
+                  <a href="birimlerimiz.html" class="dropdown-item"
+                    >EDİTÖRYAL EKİP</a
+                  >
+                </div>
+              </div>
+              <a href="contact.html" class="nav-item nav-link">İLETİŞİM</a>
+              <a href="birimlerimiz.html" class="nav-item nav-link"
+                >HAKKIMIZDA</a
+              >
+            </div>
+            <div class="navbar-nav ml-auto">
+              <div class="nav-item dropdown">
+                <a
+                  href=""
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  >GİRİŞ YAP</a
+                >
+                <div class="dropdown-menu">
+                  <a href="login.html" class="dropdown-item">Giriş Yap</a>
+                  <a href="login.html" class="dropdown-item">Kayıt Ol</a>
+                  <a href="admin/dist/index.html" class="dropdown-item"
+                    >Admin Sayfası</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <!-- Nav Bar End -->
+
+    <!-- Bottom Bar Start -->
+    <div class="bottom-bar" style="background-color: #5585b5">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-md-3">
+            <div class="logo">
+              <a href="index.html">
+                <img src="img/logo.png" alt="Logo" />
+              </a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="search">
+              <input type="text" placeholder="Search" />
+              <button><i class="fa fa-search"></i></button>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="user">
+              <a href="wishlist.html" class="btn wishlist">
+                <i class="fa fa-heart"></i>
+                <span>(0)</span>
+              </a>
+              <a href="cart.html" class="btn cart">
+                <i class="fa fa-shopping-cart"></i>
+                <span>(0)</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bottom Bar End -->
+
+    <!-- Main Slider Start -->
+    <div class="header">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="header-slider normal-slider">
+            <div class="header-slider-item">
+              <a href="kampanya.html"
+                ><img src="img/pictures1.png" alt="Slider Image" width="100%"
+              /></a>
+            </div>
+            <div class="header-slider-item">
+              <a href="kampanya.html"
+                ><img src="img/pictures2.png" alt="Slider Image" width="100%"
+              /></a>
+            </div>
+            <div class="header-slider-item">
+              <a href="kampanya.html"
+                ><img src="img/pictures3.png" alt="Slider Image" width="100%"
+              /></a>
+            </div>
+            <div class="header-slider-item">
+              <a href="kampanya.html"
+                ><img src="img/pictures4.png" alt="Slider Image" width="100%"
+              /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main End -->
+
+    <!-- Brand Start -->
+    <div class="brand">
+      <div class="container-fluid">
+        <div class="brand-slider">
+          <div class="brand-item"><img src="img/brand1.png" alt="" /></div>
+          <div class="brand-item"><img src="img/brand2.png" alt="" /></div>
+          <div class="brand-item"><img src="img/brand3.png" alt="" /></div>
+          <div class="brand-item"><img src="img/brand4.png" alt="" /></div>
+          <div class="brand-item"><img src="img/brand5.png" alt="" /></div>
+          <div class="brand-item"><img src="img/brand6.png" alt="" /></div>
+          <div class="brand-item"><img src="img/brand7.png" alt="" /></div>
+          <div class="brand-item"><img src="img/brand8.png" alt="" /></div>
+          <div class="brand-item"><img src="img/brand9.png" alt="" /></div>
+        </div>
+      </div>
+    </div>
+    <!-- Brand End -->
+
+    <!-- Feature Start-->
+    <div class="feature">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-lg-3 col-md-6 feature-col">
+            <div class="feature-content">
+              <i class="fab fa-cc-mastercard"></i>
+              <h2>Güvenli Ödeme</h2>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 feature-col">
+            <div class="feature-content">
+              <i class="fa fa-truck"></i>
+              <h2>Hızlı Teslimat</h2>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 feature-col">
+            <div class="feature-content">
+              <i class="fa fa-sync-alt"></i>
+              <h2>30 Gün İade</h2>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 feature-col">
+            <div class="feature-content">
+              <i class="fa fa-comments"></i>
+              <h2>7/24 Destek</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Feature End-->
+
+    <!-- Category Start-->
+    <div class="category">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="category-item ch-400">
+              <img src="img/kategori-klasik edebiyat.png" />
+              <a class="category-name" href="product-list.html#klasik">
+                <div class="align-items-center">
+                  <h1>Klasik Edebiyat</h1>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="category-item ch-250">
+              <img src="img/kategori-bilimkurgu.png" />
+              <a class="category-name" href="product-list.html#bilim-kurgu">
+                <div class="align-items-center">
+                  <h1>Bilim Kurgu Romanları</h1>
+                </div>
+              </a>
+            </div>
+            <div class="category-item ch-150">
+              <img src="img/kategori-tarih.png" />
+              <a class="category-name" href="product-list.html#tarih">
+                <div class="align-items-center">
+                  <h1>Tarih Romanları</h1>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="category-item ch-150">
+              <img src="img/kategori-fantastik.png" />
+              <a class="category-name" href="product-list.html#fantastik">
+                <div class="align-items-center">
+                  <h1>Fantastik Romanlar</h1>
+                </div>
+              </a>
+            </div>
+            <div class="category-item ch-250">
+              <img src="img/kategori-cocuk.png" />
+              <a class="category-name" href="product-list.html#cocuk">
+                <div class="align-items-center">
+                  <h1>Çocuk Kitapları</h1>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="category-item ch-400">
+              <img src="img/kategori-ask.png" />
+              <a class="category-name" href="product-list.html#romantik">
+                <div class="align-items-center">
+                  <h1>Romantik Romanlar</h1>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Category End-->
+
+    <!-- Call to Action Start -->
+    <div class="call-to-action">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <h1 style="text-align: left">KAMPANYALAR</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action End -->
+    <!--Pop Up-->
+    <div class="modal-content-wrapper">
+      <div class="image-modal-content">
+        <img
+          src="img/kampanya1.png"
+          data-title=""
+          data-description="Ürünlerimizi Görmek için Ürünler Sayfamıza İlerlemeniz Yeterli!"
+        />
+      </div>
+      <div class="image-modal-content">
+        <img
+          src="https://img.kitapyurdu.com/v1/getImage/fn:11810972/wi:0/wh:5aceaa550"
+          data-title=""
+          data-description="Kapra Yayıncılık'tan 10 kitap alana, insanlığımı Yitirirken sepette 5TL!"
+          alt="Vanilla JS Modal"
+        />
+      </div>
+      <div class="image-modal-content">
+        <img
+          src="https://img.kitapyurdu.com/v1/getImage/fn:11699126/wi:0/wh:b503d35d5"
+          data-title=""
+          data-description="Tam Metin Klasiklerde 9,90TL'den başlayan fiyatlar!"
+          alt="Vanilla JS Modal"
+        />
+      </div>
+      <div class="image-modal-content">
+        <img
+          src="https://img.kitapyurdu.com/v1/getImage/fn:11786057/wi:0/wh:6321cb2e0"
+          data-title=""
+          data-description="Tek Eksiği Fiyatı! Ömürlük, Dünya ve Türk Klasikleri Şimdi Ciltli, İplik Dikişli
+          29,90TL."
+          alt="Vanilla JS Modal"
+        />
+      </div>
+      <div class="image-modal-content">
+        <img
+          src="https://img.kitapyurdu.com/v1/getImage/fn:11771064/wi:0/wh:5d4a5c0c7"
+          data-title=""
+          data-description="400TL ve üzeri alışverişlerde 3'Iü Okul Defteri Seti Sepette 3TL!"
+          alt="Vanilla JS Modal"
+        />
+      </div>
+      <div class="image-modal-content">
+        <img
+          src="https://img.kitapyurdu.com/v1/getImage/fn:11786127/wi:0/wh:27446a502"
+          data-title=""
+          data-description="300TL üzeri Kargo BEDAVA! 150TL üzeri sabit 19,90TL"
+          alt="Vanilla JS Modal"
+        />
+      </div>
+      <a href="kampanya.html"
+        ><button class="btn" type="submit"><b>Daha Fazla</b></button></a
+      >
+    </div>
+
+    <!-- modal popup (displayed none by default) -->
+    <div class="image-modal-popup">
+      <div class="wrapper">
+        <span>&times;</span>
+        <img src="" alt="Image Modal" />
+        <div class="description">
+          <h1>This is placeholder content</h1>
+          <p>This content will be overwritten when the modal opens</p>
+        </div>
+      </div>
+    </div>
+
+    <!--Pop Up End-->
+    <!-- Review Start -->
+    <div class="review">
+      <div class="container-fluid">
+        <div class="row align-items-center review-slider normal-slider">
+          <div class="col-md-6">
+            <div class="review-slider-item">
+              <div class="review-img">
+                <img src="img/yazar-dostoyevski.jpg" alt="Image" />
+              </div>
+              <div class="review-text">
+                <h2>Fyodor Dostoyevski</h2>
+                <p>
+                  Rus yazar, insan psikolojisi ve ahlaki karmaşıklıkları işler.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="review-slider-item">
+              <div class="review-img">
+                <img src="img/yazar-jane.jpg" alt="Image" />
+              </div>
+              <div class="review-text">
+                <h2>Jane Austen</h2>
+                <p>
+                  İngiliz yazar, toplumun ahlaki değerlerini keskin bir gözlemle
+                  yansıtır.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="review-slider-item">
+              <div class="review-img">
+                <img src="img/yazar-gabriel.png" alt="Image" />
+              </div>
+              <div class="review-text">
+                <h2>Gabriel García Márquez</h2>
+                <p>
+                  Kolombiyalı yazar, büyülü gerçekçilikle tanınır, büyülü
+                  dünyalar oluşturur.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="review-slider-item">
+              <div class="review-img">
+                <img src="img/yazar-haruki.png" alt="Image" />
+              </div>
+              <div class="review-text">
+                <h2>Haruki Murakami</h2>
+                <p>
+                  Japon yazar, gizem ve melankoliyi modern yaşamla harmanlar.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="review-slider-item">
+              <div class="review-img">
+                <img src="img/yazar-orwell.png" alt="Image" />
+              </div>
+              <div class="review-text">
+                <h2>George Orwell</h2>
+                <p>
+                  İngiliz yazar, totaliterizm eleştirisinde keskin bir
+                  gözlemcidir.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Review End -->
+
+    <!-- Footer Start -->
+    <div class="footer">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-4 col-md-8">
+            <div class="footer-widget">
+              <h2>İletişim</h2>
+              <div class="contact-info">
+                <p><i class="fa fa-envelope"></i>bayramkitap@info.com</p>
+                <p><i class="fa fa-phone"></i>262 666 41 41</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-8">
+            <div class="footer-widget">
+              <h2>Bizi Takip Et</h2>
+              <div class="contact-info">
+                <div class="social">
+                  <a href=""><i class="fab fa-twitter"></i></a>
+                  <a href=""><i class="fab fa-facebook-f"></i></a>
+                  <a href=""><i class="fab fa-linkedin-in"></i></a>
+                  <a href=""><i class="fab fa-instagram"></i></a>
+                  <a href=""><i class="fab fa-youtube"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-8">
+            <div class="footer-widget">
+              <h2>Tasarlayan</h2>
+              <div class="contact-info">
+                <p>-Bayram Dilek</p>
+                <p>-Bilişim Sistemleri Mühendisliği Öğrencisi</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer End -->
+
+      <!-- Footer Bottom Start -->
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 copyright">
+              <p>
+                Copyright &copy; <a href="https://htmlcodex.com">HTML Codex</a>.
+                All Rights Reserved
+              </p>
+            </div>
+
+            <div class="col-md-6 template-by">
+              <p>Template By <a href="https://htmlcodex.com">HTML Codex</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer Bottom End -->
+
+      <!-- Back to Top -->
+      <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+      <!-- JavaScript Libraries -->
+      <script>
+        // all images inside the image modal content class
+        const lightboxImages = document.querySelectorAll(
+          ".image-modal-content img"
+        );
+
+        // dynamically selects all elements inside modal popup
+        const modalElement = (element) =>
+          document.querySelector(`.image-modal-popup ${element}`);
+
+        const body = document.querySelector("body");
+
+        // closes modal on clicking anywhere and adds overflow back
+        document.addEventListener("click", () => {
+          body.style.overflow = "auto";
+          modalPopup.style.display = "none";
+        });
+
+        const modalPopup = document.querySelector(".image-modal-popup");
+
+        // loops over each modal content img and adds click event functionality
+        lightboxImages.forEach((img) => {
+          const data = img.dataset;
+          img.addEventListener("click", (e) => {
+            body.style.overflow = "hidden";
+            e.stopPropagation();
+            modalPopup.style.display = "block";
+            modalElement("h1").innerHTML = data.title;
+            modalElement("p").innerHTML = data.description;
+            modalElement("img").src = img.src;
+          });
+        });
+      </script>
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+      <script src="lib/easing/easing.min.js"></script>
+      <script src="lib/slick/slick.min.js"></script>
+
+      <!-- Template Javascript -->
+      <script src="js/main.js"></script>
+    </div>
+  </body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Bayram Sayfa Kitabevi</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="eCommerce HTML Template Free Download" name="keywords" />
+    <meta content="eCommerce HTML Template Free Download" name="description" />
+
+    <!-- Favicon -->
+    <link href="img/icon2.png" rel="icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Libraries -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="lib/slick/slick.css" rel="stylesheet" />
+    <link href="lib/slick/slick-theme.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Nav Bar Start -->
+    <div class="nav">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+          <a href="#" class="navbar-brand">MENU</a>
+          <button
+            type="button"
+            class="navbar-toggler"
+            data-toggle="collapse"
+            data-target="#navbarCollapse"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div
+            class="collapse navbar-collapse justify-content-between"
+            id="navbarCollapse"
+          >
+            <div class="navbar-nav mr-auto">
+              <a href="index.html" class="nav-item nav-link">ANASAYFA</a>
+              <div class="nav-item dropdown">
+                <a
+                  href="product-list.html"
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  >ÜRÜNLER</a
+                >
+                <div class="dropdown-menu">
+                  <a href="product-list.html" class="dropdown-item"
+                    >TÜM KİTAPLAR</a
+                  >
+                  <a href="product-list.html#klasik" class="dropdown-item"
+                    >KLASİK EDEBİYAT</a
+                  >
+                  <a href="product-list.html#bilim-kurgu" class="dropdown-item"
+                    >BİLİM KURGU</a
+                  >
+                  <a href="product-list.html#tarih" class="dropdown-item"
+                    >TARİH ROMANLARI</a
+                  >
+                  <a href="product-list.html#fantastik" class="dropdown-item"
+                    >FANTASTİK ROMANLAR</a
+                  >
+                  <a href="product-list.html#cocuk" class="dropdown-item"
+                    >ÇOCUK KİTAPLARI</a
+                  >
+                  <a href="product-list.html#romantik" class="dropdown-item"
+                    >ROMANTİK ROMANLAR</a
+                  >
+                </div>
+              </div>
+              <a href="kampanya.html" class="nav-item nav-link">KAMPANYALAR</a>
+              <a href="birimlerimiz.html" class="nav-item nav-link"
+                >MİSYON ve VİZYON</a
+              >
+
+              <div class="nav-item dropdown">
+                <a
+                  href="birimlerimiz.html"
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  >BİRİMLERİMİZ</a
+                >
+                <div class="dropdown-menu">
+                  <a href="birimlerimiz.html" class="dropdown-item"
+                    >SATIŞ VE MÜŞTERİ HİZMETLERİ</a
+                  >
+                  <a href="birimlerimiz.html" class="dropdown-item"
+                    >DEPOLAMA VE LOJİSTİK</a
+                  >
+                  <a href="birimlerimiz.html" class="dropdown-item"
+                    >EDİTÖRYAL EKİP</a
+                  >
+                </div>
+              </div>
+              <a href="contact.html" class="nav-item nav-link">İLETİŞİM</a>
+              <a href="birimlerimiz.html" class="nav-item nav-link"
+                >HAKKIMIZDA</a
+              >
+            </div>
+            <div class="navbar-nav ml-auto">
+              <div class="nav-item dropdown">
+                <a
+                  href=""
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  >GİRİŞ YAP</a
+                >
+                <div class="dropdown-menu">
+                  <a href="login.html" class="dropdown-item">Giriş Yap</a>
+                  <a href="login.html" class="dropdown-item">Kayıt Ol</a>
+                  <a href="admin/dist/index.html" class="dropdown-item"
+                    >Admin Sayfası</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <!-- Nav Bar End -->
+
+    <!-- Bottom Bar Start -->
+    <div class="bottom-bar" style="background-color: #5585b5">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-md-3">
+            <div class="logo">
+              <a href="index.html">
+                <img src="img/logo.png" alt="Logo" />
+              </a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="search">
+              <input type="text" placeholder="Search" />
+              <button><i class="fa fa-search"></i></button>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="user">
+              <a href="wishlist.html" class="btn wishlist">
+                <i class="fa fa-heart"></i>
+                <span>(0)</span>
+              </a>
+              <a href="cart.html" class="btn cart">
+                <i class="fa fa-shopping-cart"></i>
+                <span>(0)</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bottom Bar End -->
+
+    <!-- Cart Start -->
+    <div class="cart-page">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="cart-page-inner">
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th>Kitap İsmi</th>
+                      <th>Ücret</th>
+                      <th>Adet</th>
+                      <th>Toplam</th>
+                      <th>Sil</th>
+                    </tr>
+                  </thead>
+                  <tbody class="align-middle">
+                    <tr>
+                      <td>
+                        <div class="img">
+                          <a href="#"
+                            ><img
+                              src="img/romantik/aynalar-koridorunda-ask-12180834-49-K.jpg"
+                              alt="Image"
+                          /></a>
+                          <p>Aynalar Koridorunda Aşk</p>
+                        </div>
+                      </td>
+                      <td>81TL</td>
+                      <td>
+                        <div class="qty">
+                          <button class="btn-minus">
+                            <i class="fa fa-minus"></i>
+                          </button>
+                          <input type="text" value="1" />
+                          <button class="btn-plus">
+                            <i class="fa fa-plus"></i>
+                          </button>
+                        </div>
+                      </td>
+                      <td>81TL</td>
+                      <td>
+                        <button><i class="fa fa-trash"></i></button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="img">
+                          <a href="#"
+                            ><img
+                              src="img/romantik/bir-istanbul-gecesi-ciltli-12731667-56-K.jpg"
+                              alt="Image"
+                          /></a>
+                          <p>bir İstanbul Gecesi</p>
+                        </div>
+                      </td>
+                      <td>99TL</td>
+                      <td>
+                        <div class="qty">
+                          <button class="btn-minus">
+                            <i class="fa fa-minus"></i>
+                          </button>
+                          <input type="text" value="1" />
+                          <button class="btn-plus">
+                            <i class="fa fa-plus"></i>
+                          </button>
+                        </div>
+                      </td>
+                      <td>99TL</td>
+                      <td>
+                        <button><i class="fa fa-trash"></i></button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="img">
+                          <a href="#"
+                            ><img
+                              src="img/romantik/carpe-diem-2-cozum-13445519-83-K.jpg"
+                              alt="Image"
+                          /></a>
+                          <p>Carpe Diem 2</p>
+                        </div>
+                      </td>
+                      <td>107TL</td>
+                      <td>
+                        <div class="qty">
+                          <button class="btn-minus">
+                            <i class="fa fa-minus"></i>
+                          </button>
+                          <input type="text" value="1" />
+                          <button class="btn-plus">
+                            <i class="fa fa-plus"></i>
+                          </button>
+                        </div>
+                      </td>
+                      <td>107TL</td>
+                      <td>
+                        <button><i class="fa fa-trash"></i></button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="img">
+                          <a href="#"
+                            ><img
+                              src="img/romantik/kutup-yildizi-3-ciltli-12726687-39-K.jpg"
+                              alt="Image"
+                          /></a>
+                          <p>Kutup Yıldızı 3</p>
+                        </div>
+                      </td>
+                      <td>103TL</td>
+                      <td>
+                        <div class="qty">
+                          <button class="btn-minus">
+                            <i class="fa fa-minus"></i>
+                          </button>
+                          <input type="text" value="1" />
+                          <button class="btn-plus">
+                            <i class="fa fa-plus"></i>
+                          </button>
+                        </div>
+                      </td>
+                      <td>103TL</td>
+                      <td>
+                        <button><i class="fa fa-trash"></i></button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="cart-page-inner">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="coupon">
+                    <input type="text" placeholder="Kupon Kodu" />
+                    <button>Kodu Kullan</button>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="cart-summary">
+                    <div class="cart-content">
+                      <h1>Sepet Tutarı</h1>
+                      <p>Ürünlerin Toplamı<span>290TL</span></p>
+                      <p>Kargo Ücreti<span>10TL</span></p>
+                      <h2>Toplam<span>300tl</span></h2>
+                    </div>
+                    <div class="cart-btn">
+                      <button>Sepeti Güncelle</button>
+                      <button>Ödeme Yap</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Cart End -->
+
+    <!-- Footer Start -->
+    <div class="footer">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-4 col-md-8">
+            <div class="footer-widget">
+              <h2>İletişim</h2>
+              <div class="contact-info">
+                <p><i class="fa fa-envelope"></i>bayramkitap@info.com</p>
+                <p><i class="fa fa-phone"></i>262 666 41 41</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-8">
+            <div class="footer-widget">
+              <h2>Bizi Takip Et</h2>
+              <div class="contact-info">
+                <div class="social">
+                  <a href=""><i class="fab fa-twitter"></i></a>
+                  <a href=""><i class="fab fa-facebook-f"></i></a>
+                  <a href=""><i class="fab fa-linkedin-in"></i></a>
+                  <a href=""><i class="fab fa-instagram"></i></a>
+                  <a href=""><i class="fab fa-youtube"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-8">
+            <div class="footer-widget">
+              <h2>Tasarlayan</h2>
+              <div class="contact-info">
+                <p>-Bayram Dilek</p>
+                <p>-Bilişim Sistemleri Mühendisliği Öğrencisi</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer End -->
+
+      <!-- Footer Bottom Start -->
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 copyright">
+              <p>
+                Copyright &copy; <a href="https://htmlcodex.com">HTML Codex</a>.
+                All Rights Reserved
+              </p>
+            </div>
+
+            <div class="col-md-6 template-by">
+              <p>Template By <a href="https://htmlcodex.com">HTML Codex</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer Bottom End -->
+
+      <!-- Back to Top -->
+      <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+      <!-- JavaScript Libraries -->
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+      <script src="lib/easing/easing.min.js"></script>
+      <script src="lib/slick/slick.min.js"></script>
+
+      <!-- Template Javascript -->
+      <script src="js/main.js"></script>
+    </div>
+  </body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Bayram Sayfa Kitabevi</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="eCommerce HTML Template Free Download" name="keywords" />
+    <meta content="eCommerce HTML Template Free Download" name="description" />
+
+    <!-- Favicon -->
+    <link href="img/icon2.png" rel="icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Libraries -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="lib/slick/slick.css" rel="stylesheet" />
+    <link href="lib/slick/slick-theme.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Nav Bar Start -->
+    <div class="nav">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+          <a href="#" class="navbar-brand">MENU</a>
+          <button
+            type="button"
+            class="navbar-toggler"
+            data-toggle="collapse"
+            data-target="#navbarCollapse"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div
+            class="collapse navbar-collapse justify-content-between"
+            id="navbarCollapse"
+          >
+            <div class="navbar-nav mr-auto">
+              <a href="index.html" class="nav-item nav-link">ANASAYFA</a>
+              <div class="nav-item dropdown">
+                <a
+                  href="product-list.html"
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  >ÜRÜNLER</a
+                >
+                <div class="dropdown-menu">
+                  <a href="product-list.html" class="dropdown-item"
+                    >TÜM KİTAPLAR</a
+                  >
+                  <a href="product-list.html#klasik" class="dropdown-item"
+                    >KLASİK EDEBİYAT</a
+                  >
+                  <a href="product-list.html#bilim-kurgu" class="dropdown-item"
+                    >BİLİM KURGU</a
+                  >
+                  <a href="product-list.html#tarih" class="dropdown-item"
+                    >TARİH ROMANLARI</a
+                  >
+                  <a href="product-list.html#fantastik" class="dropdown-item"
+                    >FANTASTİK ROMANLAR</a
+                  >
+                  <a href="product-list.html#cocuk" class="dropdown-item"
+                    >ÇOCUK KİTAPLARI</a
+                  >
+                  <a href="product-list.html#romantik" class="dropdown-item"
+                    >ROMANTİK ROMANLAR</a
+                  >
+                </div>
+              </div>
+              <a href="kampanya.html" class="nav-item nav-link">KAMPANYALAR</a>
+              <a href="birimlerimiz.html" class="nav-item active nav-link"
+                >MİSYON ve VİZYON</a
+              >
+
+              <div class="nav-item dropdown">
+                <a
+                  href="birimlerimiz.html"
+                  class="nav-link active dropdown-toggle"
+                  data-toggle="dropdown"
+                  >BİRİMLERİMİZ</a
+                >
+                <div class="dropdown-menu">
+                  <a href="birimlerimiz.html" class="dropdown-item"
+                    >SATIŞ VE MÜŞTERİ HİZMETLERİ</a
+                  >
+                  <a href="birimlerimiz.html" class="dropdown-item"
+                    >DEPOLAMA VE LOJİSTİK</a
+                  >
+                  <a href="birimlerimiz.html" class="dropdown-item"
+                    >EDİTÖRYAL EKİP</a
+                  >
+                </div>
+              </div>
+              <a href="contact.html" class="nav-item nav-link">İLETİŞİM</a>
+              <a href="birimlerimiz.html" class="nav-item active nav-link"
+                >HAKKIMIZDA</a
+              >
+            </div>
+            <div class="navbar-nav ml-auto">
+              <div class="nav-item dropdown">
+                <a
+                  href=""
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  >GİRİŞ YAP</a
+                >
+                
+                <div class="dropdown-menu">
+                  <a href="login.html" class="dropdown-item">Giriş Yap</a>
+                  <a href="login.html" class="dropdown-item">Kayıt Ol</a>
+                  <a href="admin/dist/index.html" class="dropdown-item"
+                    >Admin Sayfası</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <!-- Nav Bar End -->
+
+    <!-- Bottom Bar Start -->
+    <div class="bottom-bar" style="background-color: #5585b5">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-md-3">
+            <div class="logo">
+              <a href="index.html">
+                <img src="img/logo.png" alt="Logo" />
+              </a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="search">
+              <input type="text" placeholder="Search" />
+              <button><i class="fa fa-search"></i></button>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="user">
+              <a href="wishlist.html" class="btn wishlist">
+                <i class="fa fa-heart"></i>
+                <span>(0)</span>
+              </a>
+              <a href="cart.html" class="btn cart">
+                <i class="fa fa-shopping-cart"></i>
+                <span>(0)</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bottom Bar End -->
+
+    <!-- My Account Start -->
+    <div class="my-account">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3">
+            <div
+              class="nav flex-column nav-pills"
+              role="tablist"
+              aria-orientation="vertical"
+            >
+              <a
+                class="nav-link active"
+                id="satis-nav"
+                data-toggle="pill"
+                href="#satis-tab"
+                role="tab"
+                ><i class="fa fa-shopping-bag"></i>SATIŞ VE MÜŞTERİ
+                HİZMETLERİ</a
+              >
+
+              <a
+                class="nav-link"
+                id="depolama-nav"
+                data-toggle="pill"
+                href="#depolama-tab"
+                role="tab"
+                ><i class="fa fa-sync"></i>DEPOLAMA VE LOJİSTİK</a
+              >
+              <a
+                class="nav-link"
+                id="edit-nav"
+                data-toggle="pill"
+                href="#edit-tab"
+                role="tab"
+                ><i class="fa fa-edit"></i>EDİTÖRYAL EKİP</a
+              >
+              <a
+                class="nav-link"
+                id="misyon-nav"
+                data-toggle="pill"
+                href="#misyon-tab"
+                role="tab"
+                ><i class="fa fa-clipboard"></i>MİSYON VE VİZYON</a
+              >
+              <a
+                class="nav-link"
+                id="hakkimizda-nav"
+                data-toggle="pill"
+                href="#hakkimizda-tab"
+                role="tab"
+                ><i class="fa fa-atlas"></i>HAKKIMIZDA</a
+              >
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="tab-content">
+              <div
+                class="tab-pane fade show active"
+                id="satis-tab"
+                role="tabpanel"
+                aria-labelledby="satis-nav"
+              >
+                <h4>SATIŞ VE MÜŞTERİ HİZMETLERİ</h4>
+                <p>
+                  Kitap dünyasına adım attığınız andan itibaren sizlere eşlik
+                  eden Satış ve Müşteri Hizmetleri birimimiz, sadece kitap
+                  satışı değil, aynı zamanda memnuniyetinizi en üst seviyeye
+                  çıkarmayı hedefler. Her sipariş, bizim için özel bir ilgi ve
+                  özenle işlenir. Sitemizde dolaşırken, bir kitaba dair daha
+                  fazla bilgiye ihtiyaç duyduğunuzda veya bir soru
+                  yaşadığınızda, uzman ekibimiz her zaman yardıma hazır.
+                </p>
+              </div>
+              <div
+                class="tab-pane fade"
+                id="depolama-tab"
+                role="tabpanel"
+                aria-labelledby="depolama-nav"
+              >
+                <h4>DEPOLAMA VE LOJİSTİK</h4>
+                <p>
+                  Kitaplar, özenle seçilmiş ve düzenlenmiş bir depo sistemi
+                  sayesinde sizlere ulaşır. Depolama ve Lojistik birimimiz,
+                  kitapların güvenli bir şekilde depolanmasını ve her siparişin
+                  en kısa sürede doğru adrese ulaştırılmasını sağlamak adına
+                  titizlikle çalışır. Kapsamlı depo yönetimi ve etkili lojistik
+                  çözümleri ile kitaplarınız her zaman istediğiniz yerdedir.
+                </p>
+              </div>
+              <div
+                class="tab-pane fade"
+                id="edit-tab"
+                role="tabpanel"
+                aria-labelledby="edit-nav"
+              >
+                <h4>EDİTÖRYAL EKİP</h4>
+                <p>
+                  Kitapların sihirli dünyasında sizi yönlendirmek ve okuma
+                  deneyiminizi daha da derinleştirmek adına Editöryal Ekibimiz,
+                  her zevke hitap eden içerikler üretir. Yeni çıkan kitap
+                  incelemeleri, yazarlarla yapılan özel röportajlar, editörlerin
+                  seçtikleriyle okuma listelerinizi zenginleştiririz. Editöryal
+                  Ekibimiz, kitaplar aracılığıyla sizi düşündürmeye,
+                  duygulandırmaya ve bilgilendirmeye odaklanır. Her bir birim,
+                  sadece bir hizmeti temsil etmekle kalmaz, aynı zamanda
+                  kitapseverlerle güçlü bir bağ kurmayı amaçlar. Bizimle
+                  birlikte, kitapların büyülü dünyasını keşfetmenin ayrıcalığını
+                  yaşayın.
+                </p>
+              </div>
+              <div
+                class="tab-pane fade"
+                id="hakkimizda-tab"
+                role="tabpanel"
+                aria-labelledby="hakkimizda-nav"
+              >
+                <h4>HAKKIMIZDA</h4>
+                <p>
+                  Bayram Sayfa Kitabevi, kitaplarla dolu bir dünyanın kapılarını
+                  aralayan bir platformdur. Biz, okuma tutkusunu paylaşan ve
+                  kitapların gücüne inanan bir topluluğuz. Kimiz:
+                  Kitapseverlerin buluşma noktası olan Bayram Sayfa Kitabevi, her
+                  yaştan, her ilgi alanından insanları bir araya getirir. Biz,
+                  sadece bir kitapevi değil, aynı zamanda bir okuma
+                  topluluğuyuz. Ne Yapıyoruz: Bayram Sayfa Kitabevi olarak
+                  amacımız, sizlere en iyi okuma deneyimini sunmak. Geniş kitap
+                  koleksiyonumuzda, her türden eseri bulabilir ve kendi
+                  hikayenizi keşfetmek için bir adım atabilirsiniz. Sizin İçin
+                  Varız: İster yeni bir kitapsever olun, ister uzun süredir
+                  süregelen bir okur; Bayram Sayfa Kitabevi, kitapların büyülü
+                  dünyasında sizinle birlikte yol almak için buradadır. Sizlere
+                  her anlamda eşlik etmek ve okuma serüveninizi daha anlamlı
+                  kılmak için buradayız. Bayram Sayfa Kitabevi ile keşfe çıkmaya
+                  hazır mısınız? Her sayfa, yeni bir macera demektir!
+                </p>
+              </div>
+              <div
+                class="tab-pane fade"
+                id="misyon-tab"
+                role="tabpanel"
+                aria-labelledby="misyon-nav"
+              >
+                <h4>MİSYON</h4>
+                <p>
+                  Bayram Sayfa Kitabevi olarak misyonumuz, herkesin yaşamına
+                  dokunan, düşündüren ve duygusal bir bağ kurmasını sağlayan
+                  kitapları sunmak. Kitaplar aracılığıyla okuyucularımıza geniş
+                  bir perspektif sunmayı, bilgiye ulaşmayı ve hayallerine ışık
+                  tutmayı hedefliyoruz. Her kitap, bizim için bir yolculuktur ve
+                  bu yolculukta sizinle birlikte olmak, kitapların sihirli
+                  dünyasını paylaşmak en büyük tutkumuzdur.
+                </p>
+                <h4>VİZYON</h4>
+                <p>
+                  Bayram Sayfa Kitabevi olarak vizyonumuz, herkesin kitaplarla
+                  dolu bir yaşam sürmesini ve okuma alışkanlıklarını
+                  geliştirmesini teşvik etmektir. Kitapların insanların düşünce
+                  dünyalarını genişletmesine, farklı kültürleri anlamalarına ve
+                  birbirleriyle bağ kurmalarına yardımcı olduğuna inanıyoruz.
+                  Vizyonumuz, Bayram Sayfa Kitabevi'ni sadece bir kitapevi değil,
+                  aynı zamanda bir okuma topluluğu ve ilham kaynağı haline
+                  getirmektir. Her okurun kendi hikayesini bulduğu, öğrendiği ve
+                  paylaştığı bir kitap evi yaratmak için çaba gösteriyoruz.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- My Account End -->
+
+    <!-- Footer Start -->
+    <div class="footer">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-4 col-md-8">
+            <div class="footer-widget">
+              <h2>İletişim</h2>
+              <div class="contact-info">
+                <p><i class="fa fa-envelope"></i>bayramkitap@info.com</p>
+                <p><i class="fa fa-phone"></i>262 666 41 41</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-8">
+            <div class="footer-widget">
+              <h2>Bizi Takip Et</h2>
+              <div class="contact-info">
+                <div class="social">
+                  <a href=""><i class="fab fa-twitter"></i></a>
+                  <a href=""><i class="fab fa-facebook-f"></i></a>
+                  <a href=""><i class="fab fa-linkedin-in"></i></a>
+                  <a href=""><i class="fab fa-instagram"></i></a>
+                  <a href=""><i class="fab fa-youtube"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-8">
+            <div class="footer-widget">
+              <h2>Tasarlayan</h2>
+              <div class="contact-info">
+                <p>-Bayram Dilek</p>
+                <p>-Bilişim Sistemleri Mühendisliği Öğrencisi</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer End -->
+
+      <!-- Footer Bottom Start -->
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 copyright">
+              <p>
+                Copyright &copy; <a href="https://htmlcodex.com">HTML Codex</a>.
+                All Rights Reserved
+              </p>
+            </div>
+
+            <div class="col-md-6 template-by">
+              <p>Template By <a href="https://htmlcodex.com">HTML Codex</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer Bottom End -->
+
+      <!-- Back to Top -->
+      <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+      <!-- JavaScript Libraries -->
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+      <script src="lib/easing/easing.min.js"></script>
+      <script src="lib/slick/slick.min.js"></script>
+
+      <!-- Template Javascript -->
+      <script src="js/main.js"></script>
+    </div>
+  </body>
+</html>
